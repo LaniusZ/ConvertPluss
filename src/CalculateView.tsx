@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, NativeSyntheticEvent, Pressable, StyleSheet, Text, TextInput, TextInputChangeEventData, TextInputComponent, View } from "react-native";
+import { NativeSyntheticEvent, Pressable, StyleSheet, Text, TextInputChangeEventData, Image } from "react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -14,10 +14,18 @@ export const styles = StyleSheet.create({
 
   title: {
     fontSize: 40,
+    marginLeft: 20,
     fontWeight: "400",
-    marginBottom: 30,
     color: "#da962b",
     textAlign: "center",
+  },
+
+  image: {
+    width: 50,
+    height: 50,
+    position: "relative",
+    top: 20,
+    right:20,
   },
 });
 
@@ -145,32 +153,84 @@ export const CalculateView = ({ navigation }: any) => {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>BIENVENIDO</Text>
+    <div className="row">
+      <div className="col-12">
+        <Text style={styles.title}>BIENVENIDO</Text>
+<div className="float-right">
+      <Image source={require("../assets/calculate.png")} style={styles.image} />  
+      </div>
+      </div>
+      <div className="col-12">
+        <div className="float-left">
+          <Text style={{ color: "#da962b", fontSize: 30, marginLeft: 20, }}>{currentValue}</Text>
+        </div>
+        <div className="float-left">
+          <Pressable onPress={() => { removePreference(); navigation.navigate("Inicio") }}>
+            <Text style={{ color: "red", marginTop: 10, marginLeft: 20 }}>Eliminar</Text>
+          </Pressable>
+        </div>
+      </div>
 
-      <Text style={styles.title}>{currentValue}</Text>
-      <Pressable onPress={() => { removePreference(); navigation.navigate("Inicio") }}>
-        <Text style={{ color: "red", marginTop: 20 }}>Eliminar</Text>
-      </Pressable>
-      <Text>US</Text>
+      <div className="row mb10 mt30">
+        <div className="col-3">&nbsp;</div>
+        <div className="col-3 text-center coin">
+          <Text>US</Text>
+        </div>
+        <div className="col-6">
+          <input type="number" name="US" value={currentUS} onChange={change} />
+        </div>
+      </div>
 
-      <input type="number" name="US" value={currentUS} onChange={change} />
+      <div className="row mb10">
+        <div className="col-3">&nbsp;</div>
+        <div className="col-3 text-center coin">
+          <Text>BTC</Text>
+        </div>
+        <div className="col-6">
+          <input type="number" name="BTC" value={currentBTC} onChange={change} />
+        </div>
+      </div>
 
-      <Text>BTC</Text>
-      <input type="number" name="BTC" value={currentBTC} onChange={change} />
+      <div className="row mb10">
+        <div className="col-3">&nbsp;</div>
+        <div className="col-3 text-center coin">
+          <Text>€</Text>
+        </div>
+        <div className="col-6">
+          <input type="number" name="E" value={currentE} onChange={change} />
+        </div>
+      </div>
 
-      <Text>E</Text>
-      <input type="number" name="E" value={currentE} onChange={change} />
+      <div className="row mb10">
+        <div className="col-3">&nbsp;</div>
+        <div className="col-3 text-center coin">
+          <Text>UF</Text>
+        </div>
+        <div className="col-6">
+          <input type="number" name="UF" value={currentUF} onChange={change} />
+        </div>
+      </div>
 
-      <Text>UF</Text>
-      <input type="number" name="UF" value={currentUF} onChange={change} />
+      <div className="row mb10">
+        <div className="col-3">&nbsp;</div>
+        <div className="col-3 text-center coin">
+          <Text>UTM</Text>
+        </div>
+        <div className="col-6">
+          <input type="number" name="UTM" value={currentUTM} onChange={change} />
+        </div>
+      </div>
 
-      <Text>UTM</Text>
-      <input type="number" name="UTM" value={currentUTM} onChange={change} />
-
-      <Text>CLP</Text>
-      <input type="number" name="CLP" value={currentCLP} onChange={change} />
-    </View>
+      <div className="row mb10">
+        <div className="col-3">&nbsp;</div>
+        <div className="col-3 text-center coin">
+          <Text>CLP</Text>
+        </div>
+        <div className="col-6">
+          <input type="number" name="CLP" value={currentCLP} onChange={change} />
+        </div>
+      </div>
+    </div>
   );
 };
 
