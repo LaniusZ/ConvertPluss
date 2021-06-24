@@ -55,17 +55,7 @@ const LinkButton = ({ text, link, navigation }: any) => (
   </Pressable>
 );
 
-const FakeButton = ({ text }: any) => (
-  <Pressable
-    style={styles.buttonContainer}
-  >
-    <Text style={styles.buttonText}>{text}</Text>
-  </Pressable>
-);
-
 const STORAGE_KEY = "USER_NAME";
-
-
 
 export const NameView = ({ navigation }: any) => {
 
@@ -76,6 +66,10 @@ export const NameView = ({ navigation }: any) => {
     if (e.currentTarget.value != null && e.currentTarget.value != "") {
       setPreference(e.currentTarget.value);
     }
+  }
+
+  function save() {
+    setPreference(document.getElementById("name").value);
   }
 
   useEffect(() => {
@@ -101,11 +95,16 @@ export const NameView = ({ navigation }: any) => {
     <View style={styles.container}>
       <Text style={styles.title}>CONOZCAMONOS<br></br>INGRESA TU<br></br> NOMBRE</Text>
       <View style={styles.section}>
-        <input type="text" value={currentValue?.toString()} onBlur={change} />
+        <input type="text" id="name" value={currentValue?.toString()} onBlur={change} />
       </View>
 
       <View style={styles.section}>
-        <FakeButton text="GUARDAR" />
+        <Pressable
+          style={styles.buttonContainer}
+          onPress={() => save()}
+        >
+          <Text style={styles.buttonText}>GUARDAR</Text>
+        </Pressable>
       </View>
 
       <View style={styles.section}>

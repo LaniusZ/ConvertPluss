@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
       <NavigationContainer theme={DefaultTheme}>
-        <Stack.Navigator initialRouteName="Calcular">
+        <Stack.Navigator initialRouteName="Inicio">
           <Stack.Screen name="Inicio" component={HomeView} />
           <Stack.Screen name="Nombre" component={NameView} />
           <Stack.Screen name="Calcular" component={CalculateView} />

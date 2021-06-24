@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     height: 50,
     position: "relative",
     top: 20,
-    right:20,
+    right: 20,
   },
 });
 
@@ -130,9 +130,11 @@ export const CalculateView = ({ navigation }: any) => {
     setCurrentValue(val);
   };
 
-  const removePreference = async () => {
+  const removePreference = async (navigation) => {
     AsyncStorage.removeItem(STORAGE_KEY);
     getPreference();
+
+    navigation.navigate("Inicio");
   };
 
   const fetchApiCall = () => {
@@ -156,16 +158,16 @@ export const CalculateView = ({ navigation }: any) => {
     <div className="row">
       <div className="col-12">
         <Text style={styles.title}>BIENVENIDO</Text>
-<div className="float-right">
-      <Image source={require("../assets/calculate.png")} style={styles.image} />  
-      </div>
+        <div className="float-right">
+          <Image source={require("../assets/calculate.png")} style={styles.image} />
+        </div>
       </div>
       <div className="col-12">
         <div className="float-left">
           <Text style={{ color: "#da962b", fontSize: 30, marginLeft: 20, }}>{currentValue}</Text>
         </div>
         <div className="float-left">
-          <Pressable onPress={() => { removePreference(); navigation.navigate("Inicio") }}>
+          <Pressable onPress={() => { removePreference(navigation); }}>
             <Text style={{ color: "red", marginTop: 10, marginLeft: 20 }}>Eliminar</Text>
           </Pressable>
         </div>

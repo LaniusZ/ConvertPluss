@@ -64,9 +64,9 @@ export const HomeView = ({ navigation }: any) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>BIENVENIDOS<br></br>A<br></br>CONVERTPLUSS</Text> 
-      
-      <Image source={require("../assets/home.png")} style={styles.image} />     
+      <Text style={styles.title}>BIENVENIDOS<br></br>A<br></br>CONVERTPLUSS</Text>
+
+      <Image source={require("../assets/home.png")} style={styles.image} />
 
       <View
         style={{
@@ -76,7 +76,7 @@ export const HomeView = ({ navigation }: any) => {
         }}
       >
 
-      {currentValue || currentValue === "" || currentValue == null ? (
+        {currentValue == null || currentValue.length == 0 ? (
           <LinkButton text="CONTINUAR" link="Nombre" navigation={navigation} />
         ) : (
           <LinkButton text="CONTINUAR" link="Calcular" navigation={navigation} />
