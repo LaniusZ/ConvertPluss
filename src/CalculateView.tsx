@@ -20,6 +20,15 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
 
+  title2: {
+    fontSize: 30,
+    fontWeight: "400",
+    marginBottom: 30,
+    marginTop:20,
+    color: "#36b449",
+    textAlign: "center",
+  },
+
   image: {
     width: 50,
     height: 50,
@@ -168,9 +177,13 @@ export const CalculateView = ({ navigation }: any) => {
         </div>
         <div className="float-left">
           <Pressable onPress={() => { removePreference(navigation); }}>
-            <Text style={{ color: "red", marginTop: 10, marginLeft: 20 }}>Eliminar</Text>
+            <Text style={{ color: "red", marginTop: 10, marginLeft: 20 }}>Cambiar Usuario</Text>
           </Pressable>
         </div>
+      </div>
+
+      <div className="col-12 text-center mt30">
+        <Text style={styles.title2}>INGRESA EL<br></br>MONTO DE TU<br></br>DIVISA</Text>
       </div>
 
       <div className="row mb10 mt30">
